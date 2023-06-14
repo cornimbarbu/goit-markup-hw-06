@@ -48,7 +48,6 @@ li {
   letter-spacing: 0.02em;
   color: #000000;
   text-decoration: none;
-  position: relative;
 }
 
 /*Logo*/
@@ -98,6 +97,7 @@ li {
   margin-bottom: 0;
   padding-left: 0px;
   align-items: center;
+  position: relative;
 }
 
 .main-navigation ul li + li {
@@ -132,28 +132,45 @@ li {
 }
 
 .main-navigation a:hover,
-.main-navigation a:focus {
+.main-navigation a:focus,
+.main-navigation a:active {
   color: var(--link-active-color);
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.main-navigation a:hover::after {
+.main-navigation a:hover::after,
+.main-navigation a:focus::after,
+.main-navigation a:active::after {
   display: inline;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.main-navigation ::after {
-  display: none;
+.current-page-studio ::after {
   position: absolute;
   content: "";
   background: #2196f3;
   border-radius: 2px;
-  width: 100%;
+  width: 44px;
   height: 3px;
-  bottom: -31px;
+  bottom: -24px;
   left: 0px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.current-page-portofolio ::after {
+  position: absolute;
+  content: "";
+  background: #2196f3;
+  border-radius: 2px;
+  width: 63px;
+  height: 3px;
+  bottom: -24px;
+  left: 93px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-navigation-adress li:hover,
@@ -277,7 +294,9 @@ h5 {
 
 .button:hover,
 .button:focus {
-  text-decoration: underline;
+  background: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -831,16 +850,16 @@ address {
   color: rgba(117, 117, 117, 0.5);
 }
 
-.form-group input:hover,
-.form-group input:focus {
+.form-group .input:focus-within {
   border: 1px solid #2196f3;
   border-radius: 4px;
   cursor: pointer;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 
-.form-group svg:hover {
+.input:focus ~ .form-svg {
   fill: #2196f3;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -872,6 +891,15 @@ address {
   line-height: 16px;
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
+}
+
+.form-textarea textarea:focus-within {
+  border: 1px solid #2196f3;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 
 .form-checkbox {
